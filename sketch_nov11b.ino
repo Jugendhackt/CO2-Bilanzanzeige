@@ -18,9 +18,9 @@ void setup()
   pinMode(ledYellow, OUTPUT);
   pinMode(ledRed, OUTPUT);
   
-  pinMode(tp1, INPUT);
-  pinMode(tp2, INPUT);
-  pinMode(tp3, INPUT);
+  pinMode(tp1, INPUT_PULLUP);
+  pinMode(tp2, INPUT_PULLUP);
+  pinMode(tp3, INPUT_PULLUP);
   
   digitalWrite(ledGreen, LOW);
   digitalWrite(ledYellow, LOW);
@@ -32,25 +32,7 @@ void loop()
  t2 = digitalRead(tp2);
  t3 = digitalRead(tp3);
 
- if (t1 == LOW && t2 == LOW && t3 == HIGH)
- {
-  digitalWrite(ledRed, HIGH);
-  digitalWrite(ledYellow, LOW);
-  digitalWrite(ledGreen, LOW);
- }
- else if (t1 == LOW && t2 == HIGH && t3 == LOW)
- {
-  digitalWrite(ledRed, HIGH);
-  digitalWrite(ledYellow, LOW);
-  digitalWrite(ledGreen, LOW);
- }
- else if (t1 == LOW && t2 == HIGH && t3 == HIGH)
- {
-  digitalWrite(ledYellow, HIGH);
-  digitalWrite(ledRed, LOW);
-  digitalWrite(ledGreen, LOW);
- }
- else if (t1 == HIGH && t2 == LOW && t3 == LOW)
+ if (t1 == HIGH && t2 == HIGH && t3 == LOW)
  {
   digitalWrite(ledRed, HIGH);
   digitalWrite(ledYellow, LOW);
@@ -58,17 +40,35 @@ void loop()
  }
  else if (t1 == HIGH && t2 == LOW && t3 == HIGH)
  {
-  digitalWrite(ledYellow, HIGH);
-  digitalWrite(ledRed, LOW);
+  digitalWrite(ledRed, HIGH);
+  digitalWrite(ledYellow, LOW);
   digitalWrite(ledGreen, LOW);
  }
- else if (t1 == HIGH && t2 == HIGH && t3 == LOW)
+ else if (t1 == HIGH && t2 == LOW && t3 == LOW)
  {
   digitalWrite(ledYellow, HIGH);
   digitalWrite(ledRed, LOW);
   digitalWrite(ledGreen, LOW);
  }
- else if (t1 == HIGH && t2 == HIGH && t3 == HIGH)
+ else if (t1 == LOW && t2 == HIGH && t3 == HIGH)
+ {
+  digitalWrite(ledRed, HIGH);
+  digitalWrite(ledYellow, LOW);
+  digitalWrite(ledGreen, LOW);
+ }
+ else if (t1 == LOW && t2 == HIGH && t3 == LOW)
+ {
+  digitalWrite(ledYellow, HIGH);
+  digitalWrite(ledRed, LOW);
+  digitalWrite(ledGreen, LOW);
+ }
+ else if (t1 == LOW && t2 == LOW && t3 == HIGH)
+ {
+  digitalWrite(ledYellow, HIGH);
+  digitalWrite(ledRed, LOW);
+  digitalWrite(ledGreen, LOW);
+ }
+ else if (t1 == LOW && t2 == LOW && t3 == LOW)
  {
   digitalWrite(ledGreen, HIGH);
   digitalWrite(ledRed, LOW);
